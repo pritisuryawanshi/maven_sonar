@@ -3,7 +3,7 @@
         stages {
           stage("build & SonarQube Scanner") {
             agent any
-            stage('SonarQube Analysis') {
+            stage('SonarQube Scanner') {
     steps {
         script {
             def scannerHome = tool 'SonarQube Scanner'; // Define the SonarQube Scanner tool
