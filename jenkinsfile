@@ -6,7 +6,7 @@
             stage('SonarQube Analysis') {
     steps {
         script {
-            def scannerHome = tool 'SonarQubeScanner'; // Define the SonarQube Scanner tool
+            def scannerHome = tool 'SonarQube Scanner'; // Define the SonarQube Scanner tool
 
             // Set SonarQube server authentication token
             withSonarQubeEnv('SonarQube Scanner') {
