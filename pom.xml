@@ -17,19 +17,6 @@
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
-<profiles>
-  <profile>
-    <id>sonar</id>
-    <activation>
-      <activeByDefault>true</activeByDefault>
-    </activation>
-    <properties>
-      <sonar.host.url>
-        http://65.0.182.119:9000/
-      </sonar.host.url>
-    </properties>
-  </profile> 
-</profiles>
   
   <dependencies>
     <dependency>
@@ -44,6 +31,11 @@
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+       <plugin>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>3.7.0.1746</version>
+      </plugin>
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.1.0</version>
@@ -99,7 +91,7 @@
             <properties>
                 <!-- Optional URL to server. Default value is http://localhost:9000 -->
                 <sonar.host.url>
-                  http://myserver:9000
+                  http://http://65.0.182.119:9000:9000
                 </sonar.host.url>
             </properties>
         </profile>
