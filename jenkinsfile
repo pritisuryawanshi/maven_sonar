@@ -1,19 +1,7 @@
       pipeline {
         agent none
         stages {
-          stage('SonarQube Scanner') {
-    steps {
-        script {
-            def scannerHome = tool 'SonarQube Scanner'; // Define the SonarQube Scanner tool
-
-            // Set SonarQube server authentication token
-            withSonarQubeEnv('SonarQube Scanner') {
-                // Replace 'YOUR_TOKEN_HERE' with the generated token
-                sh "${scannerHome}/bin/sonar-scanner -Dsonar.login=sqa_43af5cbc20941715354ff009ee78141c16dd9ea3"
-            }
-        }
-    }
-}
+         
           stage("build & SonarQube Scanner") {
             agent any
             steps {
