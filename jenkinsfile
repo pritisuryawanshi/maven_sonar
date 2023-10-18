@@ -3,6 +3,20 @@
         stages {
           stage("build & SonarQube Scanner") {
             agent any
+            stage('SonarQube Analysis') {
+    steps {
+        script {
+            def scannerHome = tool 'SonarQubeScanner'; // Define the SonarQube Scanner tool
+
+            // Set SonarQube server authentication token
+            withSonarQubeEnv('SonarQubeServerName') {
+                // Replace 'YOUR_TOKEN_HERE' with the generated token
+                sh "${scannerHome}/bin/sonar-scanner -Dsonar.login=YOUR_TOKEN_HERE"
+            }
+        }
+    }
+}
+
             steps {
               withSonarQubeEnv('SonarQube Scanner') {
                 sh 'mvn clean package sonar:sonar'
