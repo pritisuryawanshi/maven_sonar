@@ -1,9 +1,7 @@
       pipeline {
         agent none
         stages {
-          stage("build & SonarQube Scanner") {
-            agent any
-            stage('SonarQube Scanner') {
+          stage('SonarQube Scanner') {
     steps {
         script {
             def scannerHome = tool 'SonarQube Scanner'; // Define the SonarQube Scanner tool
@@ -16,7 +14,8 @@
         }
     }
 }
-
+          stage("build & SonarQube Scanner") {
+            agent any
             steps {
               withSonarQubeEnv('SonarQube Scanner') {
                 sh 'mvn clean package sonar:sonar'
