@@ -9,9 +9,9 @@
             def scannerHome = tool 'SonarQubeScanner'; // Define the SonarQube Scanner tool
 
             // Set SonarQube server authentication token
-            withSonarQubeEnv('SonarQubeServerName') {
+            withSonarQubeEnv('SonarQube Scanner') {
                 // Replace 'YOUR_TOKEN_HERE' with the generated token
-                sh "${scannerHome}/bin/sonar-scanner -Dsonar.login=YOUR_TOKEN_HERE"
+                sh "${scannerHome}/bin/sonar-scanner -Dsonar.login=sqa_43af5cbc20941715354ff009ee78141c16dd9ea3"
             }
         }
     }
